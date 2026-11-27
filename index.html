@@ -4,35 +4,130 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>htmlwork</title>
+  <meta name="description" content="Projects・Play・Profile">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <a class="logo" href="./">htmlwork</a>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+      <a class="logo" href="#top">htmlwork</a>
+      <nav aria-label="メイン">
+        <a href="#projects">Projects</a>
+        <a href="#play">Play</a>
+        <a href="#profile">Profile</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
+  <main>
+    <section class="hero container" id="top">
       <h1>htmlwork</h1>
-      <p>素の HTML / CSS / JavaScript で作るサイトの土台です。</p>
-      <button id="greet" type="button">クリック</button>
-      <p id="message" aria-live="polite"></p>
+      <p>つくったもの、あそべるもの、わたしのこと。</p>
+      <a class="btn" href="#play">あそんでみる</a>
     </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>ここに内容を追加していきます。</p>
+    <!-- ===== Projects ===== -->
+    <section id="projects" class="container">
+      <h2>Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="card-thumb" style="--g1:#60a5fa;--g2:#a78bfa"></div>
+          <div class="card-body">
+            <h3>プロジェクト名 1</h3>
+            <p>ここにプロジェクトの説明を書きます。</p>
+            <ul class="tags"><li>HTML</li><li>CSS</li></ul>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-thumb" style="--g1:#f472b6;--g2:#fb923c"></div>
+          <div class="card-body">
+            <h3>プロジェクト名 2</h3>
+            <p>ここにプロジェクトの説明を書きます。</p>
+            <ul class="tags"><li>JavaScript</li></ul>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-thumb" style="--g1:#34d399;--g2:#facc15"></div>
+          <div class="card-body">
+            <h3>プロジェクト名 3</h3>
+            <p>ここにプロジェクトの説明を書きます。</p>
+            <ul class="tags"><li>Design</li></ul>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>ここに連絡先などを追加します。</p>
+    <!-- ===== Play ===== -->
+    <section id="play" class="container">
+      <div class="section-head">
+        <h2>Play</h2>
+        <button id="sound-toggle" class="chip" type="button" aria-pressed="true">🔊 音あり</button>
+      </div>
+      <p class="lead">さわって、うごかして、あそんでみてください。</p>
+
+      <div class="play-grid">
+        <!-- らくがき -->
+        <article class="play-card" id="doodle">
+          <h3>らくがき</h3>
+          <div class="toolbar">
+            <div class="palette" role="group" aria-label="いろ"></div>
+            <div class="tool-row">
+              <div class="sizes" role="group" aria-label="ふとさ">
+                <button type="button" class="chip" data-size="3">細</button>
+                <button type="button" class="chip" data-size="8" aria-pressed="true">中</button>
+                <button type="button" class="chip" data-size="18">太</button>
+              </div>
+              <button type="button" class="chip" data-tool="eraser" aria-pressed="false">消しゴム</button>
+              <button type="button" class="chip" data-tool="clear">ぜんぶ消す</button>
+            </div>
+          </div>
+          <canvas class="doodle-canvas" aria-label="らくがき帳"></canvas>
+        </article>
+
+        <!-- パズル -->
+        <article class="play-card" id="puzzle">
+          <h3>パズル</h3>
+          <div class="toolbar tool-row">
+            <div role="group" aria-label="むずかしさ">
+              <button type="button" class="chip" data-grid="3" aria-pressed="true">3×3</button>
+              <button type="button" class="chip" data-grid="4" aria-pressed="false">4×4</button>
+            </div>
+            <button type="button" class="chip" data-action="shuffle">シャッフル</button>
+            <img class="puzzle-preview" alt="お手本" width="40" height="40">
+          </div>
+          <div class="puzzle-board"></div>
+          <p class="puzzle-status" aria-live="polite"></p>
+          <p class="hint">ピースをドラッグして入れ替え（タップで2つ選んでもOK）</p>
+        </article>
+
+        <!-- なかまたち -->
+        <article class="play-card wide" id="friends">
+          <h3>なかまたち</h3>
+          <p class="hint">キャラをタッチすると音が鳴ります</p>
+          <div class="stage" id="stage"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Profile ===== -->
+    <section id="profile" class="container">
+      <h2>Profile</h2>
+      <div class="profile">
+        <div class="avatar" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50" fill="#dbeafe"/>
+            <circle cx="50" cy="40" r="18" fill="#60a5fa"/>
+            <path d="M18 92 C22 66 78 66 82 92Z" fill="#60a5fa"/>
+          </svg>
+        </div>
+        <div class="profile-body">
+          <h3>あなたの名前</h3>
+          <p class="role">肩書き・職種</p>
+          <p>ここに自己紹介を書きます。得意なこと、好きなもの、いま取り組んでいることなど。</p>
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          <p class="links"><a href="https://github.com/aiplex-koeda">GitHub</a></p>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -40,6 +135,10 @@
     <div class="container">&copy; <span id="year"></span> htmlwork</div>
   </footer>
 
+  <script src="js/sound.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/doodle.js"></script>
+  <script src="js/puzzle.js"></script>
+  <script src="js/friends.js"></script>
 </body>
 </html>
